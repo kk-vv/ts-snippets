@@ -1,0 +1,40 @@
+{
+  "Zustand Store with Immer": {
+    "prefix": "zus",
+    "body": [
+      "import { create } from 'zustand';",
+      "import { immer } from 'zustand/middleware/immer';",
+      "",
+      "interface States {",
+      "  count: number;",
+      "}",
+      "",
+      "const initialStates: States = {",
+      "  count: 0,",
+      "};",
+      "",
+      "interface Actions {",
+      "  onIncrease: () => void;",
+      "  onReset: () => void;",
+      "}",
+      "",
+      "const use${1:Count}Store = create<States & Actions>()(",
+      "  immer((set, get) => ({",
+      "    ...initialStates,",
+      "    onIncrease: () => {",
+      "      set((state) => {",
+      "        state.count += 1;",
+      "      });",
+      "    },",
+      "    onReset() {",
+      "      set({ ...initialStates });",
+      "    },",
+      "  }))",
+      ");",
+      "",
+      "export default use${1:Count}Store;"
+    ],
+    "description": "Creates a Zustand store with Immer middleware, with customizable store name.",
+    "scope": "javascript,typescript"
+  }
+}
