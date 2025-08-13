@@ -14,6 +14,11 @@ A snippet for creating customizable Zustand stores with Immer middleware in Java
 3. Enter a custom store name (e.g., `Todo`, `User`) when prompted.
 4. The snippet will generate a store with the specified name, using fixed `States` and `Actions` interfaces.
 
+|Command|Description|
+|----|----|
+| `zus`     | Creates a single Zustand store with Immer middleware and a customizable name (e.g., `useTodoStore`), including a counter with `onIncrease` and `onReset` actions. |
+| `zusfact` | Creates a Zustand store factory with Immer middleware, exporting multiple stores with customizable names (e.g., `useTodoStore1`, `useTodoStore2`) and distinct initial counter values. |
+
 ## Example
 Type `zus`, enter `Todo`, and get:
 ```typescript
