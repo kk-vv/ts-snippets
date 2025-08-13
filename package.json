@@ -21,6 +21,10 @@
   "contributes": {
     "snippets": [
       {
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
         "language": "typescript",
         "path": "./snippets/snippets.code-snippets"
       }
@@ -29,5 +33,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kk-vv/ts-snippets.git"
-  }
+  },
+  "license": "MIT"
 }
