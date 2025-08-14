@@ -18,6 +18,9 @@ A snippet for creating customizable Zustand stores with Immer middleware in Java
 |----|----|
 | `zus`     | Creates a single Zustand store with Immer middleware and a customizable name (e.g., `useTodoStore`), including a counter with `onIncrease` and `onReset` actions. |
 | `zusfact` | Creates a Zustand store factory with Immer middleware, exporting multiple stores with customizable names (e.g., `useTodoStore1`, `useTodoStore2`) and distinct initial counter values. |
+| `usectx`  | Creates a React Context for with a customizable name (e.g., `useTodoContext`). Restricted to `.tsx` files.|
+| `userdctx`| Creates a React Context with `useReducer` for a counter with a customizable name (e.g., `useTodoContext`), including async `onFetchData` and `onResetAll` actions. Restricted to `.tsx` files. |
+
 
 ## Example
 Type `zus`, enter `Todo`, and get:
