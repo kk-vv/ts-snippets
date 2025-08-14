@@ -1,2 +1,4 @@
 vsce package
-vsce publish minor
+# vsce publish patch
+# vsce publish minor
+# vsce publish major
