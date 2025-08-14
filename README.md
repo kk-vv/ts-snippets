@@ -17,28 +17,31 @@ A snippet for creating customizable Zustand stores with Immer middleware in Java
 |Command|Description|
 |----|----|
 | `zus`     | Creates a single Zustand store with Immer middleware and a customizable name (e.g., `useTodoStore`), including a counter with `onIncrease` and `onReset` actions. |
+| `zuspst`| Creates a persistent Zustand store with Immer middleware and a customizable name (e.g., `useTodoStore`), including a counter with `onIncrease` and `onReset` actions.|
 | `zusfact` | Creates a Zustand store factory with Immer middleware, exporting multiple stores with customizable names (e.g., `useTodoStore1`, `useTodoStore2`) and distinct initial counter values. |
-| `usectx`  | Creates a React Context for with a customizable name (e.g., `useTodoContext`). Restricted to `.tsx` files.|
-| `userdctx`| Creates a React Context with `useReducer` for a counter with a customizable name (e.g., `useTodoContext`), including async `onFetchData` and `onResetAll` actions. Restricted to `.tsx` files. |
+| `usectx`  | Creates a React Context for with a customizable name (e.g., `useTodoContext`).|
+| `userdctx`| Creates a React Context with `useReducer` for a counter with a customizable name (e.g., `useTodoContext`), including async `onFetchData` and `onResetAll` actions.|
 
 
 ## Example
-Type `zus`, enter `Todo`, and get:
+
+- Type `zus`, enter `Todo`, and get:
+
 ```typescript
-import { create } from 'zustand';
-import { immer } from 'zustand/middleware/immer';
+import { create } from 'zustand'
+import { immer } from 'zustand/middleware/immer'
 
 interface States {
-  count: number;
+  count: number
 }
 
 const initialStates: States = {
   count: 0,
-};
+}
 
 interface Actions {
-  onIncrease: () => void;
-  onReset: () => void;
+  onIncrease: () => void
+  onReset: () => void
 }
 
 const useTodoStore = create<States & Actions>()(
@@ -46,13 +49,16 @@ const useTodoStore = create<States & Actions>()(
     ...initialStates,
     onIncrease: () => {
       set((state) => {
-        state.count += 1;
-      });
+        state.count += 1
+      })
     },
     onReset() {
-      set({ ...initialStates });
+      set({ ...initialStates })
     },
   }))
-);
+)
 
-export default useTodoStore;
+export default useTodoStore
+```
+
+- Type `userdctx`, enter `Todo`, and get:

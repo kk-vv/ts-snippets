@@ -74,6 +74,51 @@
     "description": "Creates a Zustand store with Immer middleware using a factory function, with customizable store names.",
     "scope": "javascript,typescript"
   },
+  "Zustand Persist Store with Immer": {
+    "prefix": "zuspst",
+    "body": [
+      "import { create } from 'zustand'",
+      "import { createJSONStorage, persist } from 'zustand/middleware'",
+      "import { immer } from 'zustand/middleware/immer'",
+      "",
+      "interface States {",
+      "  count: number",
+      "}",
+      "",
+      "const initialStates: States = {",
+      "  count: 0,",
+      "}",
+      "",
+      "interface Actions {",
+      "  onIncrease: () => void",
+      "  onReset: () => void",
+      "}",
+      "",
+      "const use${1:Count}Store = create<States & Actions>()(",
+      "  persist(",
+      "    immer((set, get) => ({",
+      "      ...initialStates,",
+      "      onIncrease: () => {",
+      "        set((state) => {",
+      "          state.count += 1",
+      "        })",
+      "      },",
+      "      onReset() {",
+      "        set({ ...initialStates })",
+      "      },",
+      "    })),",
+      "    {",
+      "      name: 'storage_key_${1:Count}',",
+      "      storage: createJSONStorage(() => localStorage), // default: localStorage, or sessionStorage or custom via StateStorage",
+      "    }",
+      "  )",
+      ")",
+      "",
+      "export default use${1:Count}Store"
+    ],
+    "description": "Creates a persistent Zustand store with Immer middleware and a customizable name (e.g., useTodoStore), including a counter with onIncrease and onReset actions. Persists to localStorage.",
+    "scope": "javascript,typescript,typescriptreact"
+  },
   "React Context": {
     "prefix": "usectx",
     "body": [
@@ -123,8 +168,8 @@
       "  return context",
       "}"
     ],
-    "description": "Creates a React Context for with a customizable name (e.g., useTodoContext), Restricted to .tsx files.",
-    "scope": "typescriptreact"
+    "description": "Creates a React Context for with a customizable name (e.g., useTodoContext).",
+    "scope": "javascript,typescript,typescriptreact"
   },
   "React Context with Reducer": {
     "prefix": "userdctx",
@@ -144,10 +189,10 @@
       "}",
       "",
       "type Action =",
-      "  | { type: 'INCREMENT_COUNT' payload: number }",
+      "  | { type: 'INCREMENT_COUNT'; payload: number }",
       "  | { type: 'RESET' }",
-      "  | { type: 'SET_STATUS' payload: States['status'] }",
-      "  | { type: 'SET_ERROR' payload: string | null }",
+      "  | { type: 'SET_STATUS'; payload: States['status'] }",
+      "  | { type: 'SET_ERROR'; payload: string | null }",
       "",
       "type ${1:Count}ContextType = States & Actions",
       "",
@@ -211,7 +256,7 @@
       "  return context",
       "}"
     ],
-    "description": "Creates a React Context with useReducer for a counter with a customizable name (e.g., useTodoContext), including onFetchData and onResetAll actions. Restricted to .tsx files.",
-    "scope": "typescriptreact"
+    "description": "Creates a React Context with useReducer for a counter with a customizable name (e.g., useTodoContext), including onFetchData and onResetAll actions.",
+    "scope": "javascript,typescript,typescriptreact"
   }
 }
