@@ -2,7 +2,7 @@
   "name": "kksnippets",
   "displayName": "KKSnippets",
   "description": "Snippets for creating customizable Zustand stores with Immer middleware, with fixed States and Actions interfaces",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "publisher": "kk-vv",
   "engines": {
     "vscode": "^1.103.0"
