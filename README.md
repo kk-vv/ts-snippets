@@ -63,7 +63,7 @@ export default useTodoStore
 
 - Type `userdctx`, enter `Todo`, and get:
 
-```
+```typescript
 "use client"
 import React, { createContext, useCallback, useContext, useMemo, useReducer } from "react"
 
